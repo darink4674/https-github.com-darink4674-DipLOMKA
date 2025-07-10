@@ -1,0 +1,48 @@
+﻿<Page x:Class="DIPLOM.Pages.UserTickets"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UserTickets">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" Text="Мои билеты" 
+                   FontSize="24" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Margin="0,20"/>
+
+        <!-- Список билетов -->
+        <ListView Grid.Row="1" x:Name="TicketsListView" Margin="20">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" Text="{Binding FlightNumber}"/>
+                            <TextBlock Text="{Binding Route}"/>
+                            <TextBlock Text="{Binding DepartureTime, StringFormat='Вылет: {0:g}'}"/>
+                            <TextBlock Text="{Binding Class}"/>
+                            <TextBlock Text="{Binding TotalPrice, StringFormat='Цена: {0} руб.'}"/>
+                            <Button Content="Просмотреть билет" 
+                                    Tag="{Binding BookingId}"
+                                    Click="ViewTicket_Click"
+                                    Margin="0,5,0,0" Padding="10,2"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Кнопка назад -->
+        <Button Grid.Row="2" Content="Назад в меню" 
+                HorizontalAlignment="Center" Margin="0,0,0,20"
+                Width="150" Click="BackButton_Click"/>
+    </Grid>
+</Page>

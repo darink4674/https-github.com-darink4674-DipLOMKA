@@ -1,0 +1,102 @@
+﻿<Page x:Class="DIPLOM.Pages.BookingForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Оформление билета">
+    <Grid Background="#FFE6F2FF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Оформление билета" 
+                   FontSize="20" FontWeight="Bold" 
+                   Margin="20" HorizontalAlignment="Center"/>
+
+        <TextBlock Grid.Row="1" x:Name="FlightInfoTextBlock" Margin="20,0" TextWrapping="Wrap"/>
+
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Margin="20,10">
+            <StackPanel>
+                <GroupBox Header="Пассажирские данные" Margin="0,0,0,20">
+                    <StackPanel Margin="10">
+                        <TextBox x:Name="FirstNameTextBox" 
+                                 Width="300" Height="30" 
+                                 Margin="0,0,0,10" Padding="5"
+                                 Text="Имя"/>
+
+                        <TextBox x:Name="LastNameTextBox" 
+                                 Width="300" Height="30" 
+                                 Margin="0,0,0,10" Padding="5"
+                                 Text="Фамилия"/>
+
+                        <TextBox x:Name="PassportNumberTextBox" 
+                                 Width="300" Height="30" 
+                                 Margin="0,0,0,10" Padding="5"
+                                 Text="Номер паспорта"/>
+
+                        <DatePicker x:Name="BirthDatePicker" 
+                                    Width="300" Height="30"
+                                    SelectedDateFormat="Short"/>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Header="Класс перелета" Margin="0,0,0,20">
+                    <StackPanel Margin="10">
+                        <ComboBox x:Name="ClassComboBox" 
+                                  Width="300" Height="30"
+                                  DisplayMemberPath="ClassName"
+                                  SelectionChanged="ClassComboBox_SelectionChanged"/>
+                        <TextBlock Margin="0,10,0,0">
+                            <Run Text="Базовая цена:"/>
+                            <Run x:Name="BasePriceTextBlock" FontWeight="Bold"/>
+                        </TextBlock>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Header="Дополнительные услуги" Margin="0,0,0,20">
+                    <StackPanel Margin="10">
+                       
+
+                        <CheckBox x:Name="ExtraBaggageCheckBox" 
+                                  Content="Доп. багаж (30 кг) - 4000руб."
+                                  Margin="0,0,0,5"
+                                  Checked="CheckBox_Changed" Unchecked="CheckBox_Changed"/>
+
+                        <CheckBox x:Name="PetInCabinCheckBox" 
+                                  Content="Питомец в салоне - 6000руб."
+                                  Margin="0,0,0,5"
+                                  Checked="CheckBox_Changed" Unchecked="CheckBox_Changed"/>
+
+                        <CheckBox x:Name="PetInHoldCheckBox" 
+                                  Content="Питомец в багаже - 8000руб."
+                                  Margin="0,0,0,5"
+                                  Checked="CheckBox_Changed" Unchecked="CheckBox_Changed"/>
+
+                      
+                    </StackPanel>
+                </GroupBox>
+
+                <TextBlock FontSize="16" FontWeight="Bold" Margin="0,10">
+                    <Run Text="Итого к оплате:"/>
+                    <Run x:Name="TotalPriceTextBlock"/>
+                </TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+            <Button Content="Назад" 
+                    Width="100" Height="35" 
+                    Margin="0,0,20,0"
+                    Click="BackButton_Click"/>
+
+            <Button Content="Оформить" 
+                    Width="100" Height="35"
+                    Click="NextButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

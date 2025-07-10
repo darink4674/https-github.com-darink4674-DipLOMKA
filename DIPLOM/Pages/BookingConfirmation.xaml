@@ -1,0 +1,49 @@
+﻿<Page x:Class="DIPLOM.Pages.BookingConfirmation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DIPLOM.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BookingConfirmation">
+
+    <Grid Background="#FFE6F2FF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Подтверждение бронирования" 
+                   FontSize="20" FontWeight="Bold" 
+                   Margin="20" HorizontalAlignment="Center"/>
+
+        <Border Grid.Row="1" Margin="20" Background="White" CornerRadius="5" Padding="20">
+            <StackPanel>
+                <TextBlock Text="Детали рейса:" FontWeight="Bold" Margin="0,0,0,10"/>
+                <StackPanel x:Name="FlightDetailsPanel" Margin="20,0,0,20"/>
+
+                <TextBlock Text="Пассажир:" FontWeight="Bold" Margin="0,0,0,10"/>
+                <StackPanel x:Name="PassengerDetailsPanel" Margin="20,0,0,20"/>
+
+                <TextBlock Text="Дополнительные услуги:" FontWeight="Bold" Margin="0,0,0,10"/>
+                <StackPanel x:Name="ServicesPanel" Margin="20,0,0,20"/>
+
+                <TextBlock Text="Итого к оплате:" FontWeight="Bold" Margin="0,0,0,10"/>
+                <TextBlock x:Name="TotalPriceTextBlock" FontSize="16" Margin="20,0,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+            <Button Content="Назад" 
+                    Width="100" Height="35" 
+                    Margin="0,0,20,0"
+                    Click="BackButton_Click"/>
+
+            <Button Content="Подтвердить" 
+                    Width="150" Height="35"
+                    Click="ConfirmButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

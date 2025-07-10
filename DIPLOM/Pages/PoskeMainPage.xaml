@@ -1,0 +1,34 @@
+﻿<Page x:Class="DIPLOM.Pages.PoskeMainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DIPLOM.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PoskeMainPage">
+
+    <Grid Background="#FFE6F2FF">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Добро пожаловать в систему бронирования авиабилетов" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,50"
+                       TextAlignment="Center"/>
+
+            <Button Content="Начать покупку билетов" 
+                    Width="250" 
+                    Height="40" 
+                    Margin="0,0,0,20"
+                    FontSize="16"
+                    Click="CustomerButton_Click"/>
+
+            <Button Content="Для администраторов" 
+                    Width="250" 
+                    Height="40"
+                    FontSize="16"
+                    Click="AdminButton_Click"/>
+        </StackPanel>
+    </Grid>
+
+</Page>

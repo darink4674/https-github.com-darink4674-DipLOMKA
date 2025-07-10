@@ -1,0 +1,46 @@
+﻿<Page x:Class="DIPLOM.Pages.FlightSearch"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Поиск рейсов">
+
+    <StackPanel Margin="20">
+        <TextBlock Text="Поиск рейсов" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <StackPanel Orientation="Horizontal" Margin="0,5">
+            <TextBlock Text="Откуда:" Width="100" VerticalAlignment="Center"/>
+            <ComboBox x:Name="DepartureComboBox" Width="200" DisplayMemberPath="City"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,5">
+            <TextBlock Text="Куда:" Width="100" VerticalAlignment="Center"/>
+            <ComboBox x:Name="ArrivalComboBox" Width="200" DisplayMemberPath="City"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,5">
+            <TextBlock Text="Дата вылета:" Width="100" VerticalAlignment="Center"/>
+            <DatePicker x:Name="FlightDatePicker" Width="120"/>
+        </StackPanel>
+
+        <Button x:Name="SearchButton" Content="Найти рейсы" Margin="0,10" Padding="10,5" Click="SearchButton_Click"/>
+
+        <TextBlock Text="Доступные рейсы:" FontWeight="Bold" Margin="0,10,0,5"/>
+
+        <ListView x:Name="FlightsListView" Height="250" Margin="0,0,0,10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Номер рейса" DisplayMemberBinding="{Binding FlightNumber}" Width="100"/>
+                    <GridViewColumn Header="Откуда" DisplayMemberBinding="{Binding DepartureAirport.City}" Width="120"/>
+                    <GridViewColumn Header="Куда" DisplayMemberBinding="{Binding ArrivalAirport.City}" Width="120"/>
+                    <GridViewColumn Header="Вылет" DisplayMemberBinding="{Binding DepartureTime, StringFormat={}{0:g}}" Width="120"/>
+                    <GridViewColumn Header="Прибытие" DisplayMemberBinding="{Binding ArrivalTime, StringFormat={}{0:g}}" Width="120"/>
+                    <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding BasePrice, StringFormat={}{0:C}}" Width="80"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="BackButton" Content="Назад" Width="100" Margin="0,0,20,0" Click="BackButton_Click"/>
+            <Button x:Name="SelectButton" Content="Выбрать" Width="100" Click="SelectButton_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Page>
